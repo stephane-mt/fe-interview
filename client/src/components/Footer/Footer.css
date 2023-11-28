@@ -1,44 +1,44 @@
 footer {
-    padding: 1rem;
-    background-color: rgb(247, 247, 247);
-    text-align: center;
-    color: gray;
-    margin-top: 3%;
+  padding: 1rem;
+  background-color: rgb(247, 247, 247);
+  text-align: center;
+  color: gray;
+  margin-top: 3%;
 }
 
 footer a {
-    color: #000000c2;
+  color: #000000c2;
 }
 
 footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .connections {
-    padding: 20px;
+  padding: 20px;
 }
 
 .connections svg {
-    /* font-size: 30pt; */
-    margin: 7px;
+  /* font-size: 30pt; */
+  margin: 7px;
 }
 
 .connections a {
-    color: #727272;
+  color: #727272;
 }
 
 .connections a:hover {
-    color: #424242
+  color: #424242;
 }
 
 #instaIcon {
-    font-size: 35pt;
+  font-size: 35pt;
 }
 
 #fbIcon {
-    font-size: 30pt;
+  font-size: 30pt;
 }
 
 #linkedIcon {
-    font-size: 34pt;
+  font-size: 34pt;
 }
