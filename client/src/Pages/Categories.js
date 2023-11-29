@@ -28,16 +28,12 @@ function Categories({ match }) {
     setLoading(true);
     getAll(1, currentCategory, query)
       .then((res) => {
-        if (query === "") {
-          setProduct((products) => [...products, ...res.products]);
-        } else {  
-          setProduct(res.products);
-        }
+        setProduct(res.products);
         setLoading(false);
         setPage((page) => page + 1);
       })
       .catch((err) => console.log(err));
-  }, [query, currentCategory, query]);
+  }, [query, currentCategory]);
 
   const handleSearch = (e) => {
     e.preventDefault();

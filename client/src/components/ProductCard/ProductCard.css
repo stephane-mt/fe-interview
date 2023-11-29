@@ -13,10 +13,18 @@
 }
 
 .card-footer {
-  text-align: right;
+  display: flex;
+  flex-direction: column;
 }
 
 #heartIcon {
   font-size: 16pt;
   margin-left: 5%;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }

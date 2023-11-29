@@ -1,5 +1,11 @@
 const baseUrl = "http://localhost:5000";
 
+/**
+ * @description Get products from the database.
+ * @param {Number} page - Page number
+ * @param {String} category - Category of the product
+ * @param {String} query - Search query
+ */
 export async function getAll(page, category, query) {
   if (query !== "" && query !== undefined) {
     return (
