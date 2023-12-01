@@ -1,5 +1,10 @@
 # How to run 
 
+- In the top level folder, install node
+```bash
+nvm install
+```
+
 - Navigate to server folder
 ```bash
 cd server
