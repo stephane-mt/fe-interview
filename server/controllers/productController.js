@@ -8,12 +8,158 @@ const moment = require("moment");
 
 const productService = require("../services/productService");
 
+const PRODUCTS = [
+  {
+    "_id": "61870b46872b3e594316f213",
+    "title": "Fancy Desk Lamp",
+    "category": "home",
+    "description": "This sleek and modern desk lamp will brighten up any workspace. With adjustable brightness settings and a minimalist design, it's perfect for both home and office use.",
+    "price": 39.99,
+    "city": "New York",
+    "image": "https://liquicontracts.com/wp-content/uploads/2018/02/liqui-contracts-commercial-office-lighting-british-made-aluminium-bamboo-cell-desk-lamp-6.jpg",
+    "addedAt": "2024-03-08T10:00:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5c8",
+    "likes": ["6186f8f061e82b39e4b2f5c9", "6186f90561e82b39e4b2f5ca"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f214",
+    "title": "Vintage Bookshelf",
+    "category": "home",
+    "description": "Add a touch of elegance to your living room with this vintage bookshelf. Crafted from high-quality wood, it provides ample storage space for your favorite books and decor.",
+    "price": 149.99,
+    "city": "Los Angeles",
+    "image": "https://i5.walmartimages.com/asr/7f7197ca-9afe-4c2b-85ab-755dfdac23b0.c12b6ac17ec3626695373a8e590d80a2.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF",
+    "addedAt": "2024-03-09T09:30:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5c9",
+    "likes": ["6186f8f061e82b39e4b2f5cb", "6186f90561e82b39e4b2f5cc"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f215",
+    "title": "Smart Thermostat",
+    "category": "electronics",
+    "description": "Take control of your home's climate with this smart thermostat. With Wi-Fi connectivity and intuitive controls, you can easily adjust the temperature from anywhere.",
+    "price": 129.99,
+    "city": "Chicago",
+    "image": "https://georgiapowermarketplace.com/dw/image/v2/BDDP_PRD/on/demandware.static/-/Sites-masterCatalog/default/dwd0bd0ca7/Products/I-NST3RDGEN-01-BRSS-XXXX-V1.jpg?sw=800&sh=800",
+    "addedAt": "2024-03-10T11:45:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5ca",
+    "likes": ["6186f8f061e82b39e4b2f5cd", "6186f90561e82b39e4b2f5ce"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f216",
+    "title": "Gourmet Coffee Beans",
+    "category": "home",
+    "description": "Indulge in the rich aroma and flavor of these gourmet coffee beans. Sourced from the finest regions, they are perfect for brewing your favorite cup of coffee.",
+    "price": 19.99,
+    "city": "San Francisco",
+    "image": "https://cablevey.com/wp-content/uploads/2020/09/Where-Do-Specialty-Coffee-Beans-Come-From.jpg",
+    "addedAt": "2024-03-11T08:00:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5cb",
+    "likes": ["6186f8f061e82b39e4b2f5cf", "6186f90561e82b39e4b2f5d0"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f217",
+    "title": "Yoga Mat",
+    "category": "toys",
+    "description": "Enhance your yoga practice with this high-quality yoga mat. With its non-slip surface and comfortable cushioning, it provides stability and support during every pose.",
+    "price": 29.99,
+    "city": "Seattle",
+    "image": "https://target.scene7.com/is/image/Target/GUEST_1d93dbc6-91a7-4e4c-906f-012f420a1d27?wid=488&hei=488&fmt=pjpeg",
+    "addedAt": "2024-03-12T14:20:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5cc",
+    "likes": ["6186f8f061e82b39e4b2f5d1", "6186f90561e82b39e4b2f5d2"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f218",
+    "title": "Wireless Earbuds",
+    "category": "electronics",
+    "description": "Experience true wireless freedom with these Bluetooth earbuds. With premium sound quality and long battery life, they are perfect for music lovers on the go.",
+    "price": 79.99,
+    "city": "Miami",
+    "image": "https://cdn11.bigcommerce.com/s-uod0rcncsw/images/stencil/960w/products/1898/6394/EM-DE031_RedemptionANC-2_1000x1000_SB-MAIN__91848__85665__62943.1700602653.png",
+    "addedAt": "2024-03-13T12:45:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5cd",
+    "likes": ["6186f8f061e82b39e4b2f5d3", "6186f90561e82b39e4b2f5d4"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f219",
+    "title": "Portable Blender",
+    "category": "home",
+    "description": "Blend your favorite smoothies and shakes on the go with this portable blender. Compact and lightweight, it's perfect for travel, work, or the gym.",
+    "price": 49.99,
+    "city": "Houston",
+    "image": "https://m.media-amazon.com/images/I/71seN8995YL.jpg",
+    "addedAt": "2024-03-14T09:00:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5ce",
+    "likes": ["6186f8f061e82b39e4b2f5d5", "6186f90561e82b39e4b2f5d6"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f21a",
+    "title": "Smartwatch",
+    "category": "electronics",
+    "description": "Stay connected and organized with this stylish smartwatch. With fitness tracking, notifications, and customizable watch faces, it's the perfect companion for your busy lifestyle.",
+    "price": 159.99,
+    "city": "Dallas",
+    "image": "https://www.fitbit.com/global/content/dam/fitbit/global/pdp/devices/google-pixel-watch/hero-static/charcoal/google-pixel-watch-charcoal-device-3qt-left.png",
+    "addedAt": "2024-03-15T10:30:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5cf",
+    "likes": ["6186f8f061e82b39e4b2f5d7", "6186f90561e82b39e4b2f5d8"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f21b",
+    "title": "Cooking Utensil Set",
+    "category": "home",
+    "description": "Upgrade your kitchen with this comprehensive cooking utensil set. Made from durable materials, it includes everything you need to prepare delicious meals with ease.",
+    "price": 34.99,
+    "city": "Atlanta",
+    "image": "https://m.media-amazon.com/images/I/71yxPx0ekLS.jpg",
+    "addedAt": "2024-03-16T11:00:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5d0",
+    "likes": ["6186f8f061e82b39e4b2f5d9", "6186f90561e82b39e4b2f5da"],
+    "active": true
+  },
+  {
+    "_id": "61870b46872b3e594316f21c",
+    "title": "Gaming Mouse",
+    "category": "electronics",
+    "description": "Get the competitive edge with this high-performance gaming mouse. With customizable buttons and precision tracking, it's perfect for gamers of all levels.",
+    "price": 49.99,
+    "city": "Boston",
+    "image": "https://c1.neweggimages.com/productimage/nb640/26-197-390-S01.jpg",
+    "addedAt": "2024-03-17T12:15:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5d1",
+    "likes": ["6186f8f061e82b39e4b2f5db", "6186f90561e82b39e4b2f5dc"],
+    "active": true
+  },
+  {
+    "_id": "52970b46872b3e594316f21c",
+    "title": "Gigantic House With Two Pools",
+    "category": "properties",
+    "description": "Not one, but two pools.",
+    "price": 1000000.00,
+    "city": "Boston",
+    "image": "https://i.pinimg.com/originals/7e/69/e2/7e69e2383742de1a19ed780c26f944da.jpg",
+    "addedAt": "2024-03-17T12:15:00.000Z",
+    "seller": "6186f84e61e82b39e4b2f5d1",
+    "likes": ["6186f8f061e82b39e4b2f5db", "6186f90561e82b39e4b2f5dc"],
+    "active": true
+  }
+]
+
 router.get("/", async (req, res) => {
   const { page, search } = req.query;
   try {
     let products;
     if (search !== "" && search !== undefined) {
-      products = await Product.find();
+      products = PRODUCTS;
       products = products.filter((x) => x.active == true);
       products = products.filter(
         (x) =>
@@ -22,12 +168,8 @@ router.get("/", async (req, res) => {
       );
       res.status(200).json({ products: products, pages: products.pages });
     } else {
-      products = await Product.paginate(
-        {},
-        { page: parseInt(page) || 1, limit: 5 },
-      );
-      products.docs = products.docs.filter((x) => x.active == true);
-      res.status(200).json({ products: products.docs, pages: products.pages });
+      products = PRODUCTS.slice((page - 1) * 5, ((page - 1) * 5) + 5)
+      res.status(200).json({ products: products });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -36,12 +178,10 @@ router.get("/", async (req, res) => {
 
 router.get("/:category", async (req, res) => {
   const { page } = req.query;
+  const { category } = req.params;
   try {
-    let products = await Product.paginate(
-      { category: req.params.category },
-      { page: parseInt(page) || 1, limit: 10 },
-    );
-    res.status(200).json({ products: products.docs, pages: products.pages });
+    let products = await PRODUCTS;
+    res.status(200).json({ products: products.filter((x) => x.category == category).slice((page - 1) * 5, ((page - 1) * 5) + 5) });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

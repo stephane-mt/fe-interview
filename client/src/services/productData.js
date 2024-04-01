@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:5001";
+const baseUrl = window.location.origin;
 
 export async function getAll(page, category, query) {
   if (query !== "" && query !== undefined) {
