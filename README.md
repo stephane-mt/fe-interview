@@ -1,3 +1,13 @@
+# Prerequisite
+
+- Make sure you have `nvm` installed, you can check by running
+```bash
+nvm -v
+```
+
+- If you don't have `nvm`, follow the guide below for Windows, Linux, & Mac
+[freeCodeCamp: Node Version Manager – NVM Install Guide](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
+
 # How to run
 
 - In the top level folder, install node
